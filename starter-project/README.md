@@ -11,11 +11,11 @@ A full-stack AI-powered application with Python backend and React/TypeScript fro
 ## 📁 Project Structure
 
 ```
-test-first-lecture/
+starter-project/
 ├── backend/                 # Python FastAPI backend
 │   ├── main.py             # FastAPI application
-│   ├── .env                # Environment variables (API keys)
-│   ├── .env.example        # Environment template
+│   ├── .env                # Environment variables (API keys, NOT in git)
+│   ├── .env.example        # Environment template (no secrets)
 │   ├── pyproject.toml      # Python dependencies
 │   └── .venv/              # Virtual environment
 ├── frontend/               # React TypeScript frontend
@@ -23,6 +23,7 @@ test-first-lecture/
 │   │   └── page.tsx        # Main React component
 │   ├── package.json        # Node.js dependencies
 │   └── ...
+├── .DS_Store               # macOS system file (can be ignored)
 └── README.md               # This file
 ```
 
@@ -38,15 +39,28 @@ test-first-lecture/
 
 1. **Navigate to backend directory:**
    ```bash
-   cd backend
+   cd starter-project/backend
    ```
 
-2. **Start the backend server:**
+2. **Create and activate the virtual environment:**
    ```bash
-   uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+   uv venv
+   source .venv/bin/activate
    ```
 
-3. **Verify backend is running:**
+3. **Install backend dependencies:**
+   ```bash
+   uv sync
+   # or if you have requirements.txt
+   # uv pip install -r requirements.txt
+   ```
+
+4. **Start the backend server:**
+   ```bash
+   uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+   ```
+
+5. **Verify backend is running:**
    ```bash
    curl http://localhost:8000/health
    ```
@@ -55,15 +69,20 @@ test-first-lecture/
 
 1. **Navigate to frontend directory:**
    ```bash
-   cd frontend
+   cd starter-project/frontend
    ```
 
-2. **Start the frontend server:**
+2. **Install frontend dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the frontend server:**
    ```bash
    npm run dev
    ```
 
-3. **Open your browser:**
+4. **Open your browser:**
    Navigate to `http://localhost:3000`
 
 ## 🔧 Configuration
